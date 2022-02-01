@@ -1,5 +1,4 @@
-import React, { useContext, useEffect, useRef } from 'react';
-import { useState } from 'react/cjs/react.development';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { FromContext } from '../../context/Context';
 
 const TravelClass = () => {

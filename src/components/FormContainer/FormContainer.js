@@ -69,7 +69,7 @@ const FormContainer = () => {
                         />
 
                         <input
-                            className="border-3 text-xl  font-medium border my-5 cursor-pointer bg-red-500 py-3 px-10 text-white"
+                            className="border-3 text-xl  font-medium border my-5 cursor-pointer bg-red-500 py-5 px-10 text-white"
                             type="submit"
                             value="Book Now"
                         />
