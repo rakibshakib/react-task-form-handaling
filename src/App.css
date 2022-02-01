@@ -1,38 +1,79 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Nunito:wght@300;400;500&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+label {
+    margin-bottom: 10px;
+    display: inline-block;
+    font-size: 1.1rem;
+}
+.field {
+    background: #f6f8fc;
+    padding: 15px 20px;
+    margin: 2px;
+    border-bottom: 1px solid #959595;
+    width: 80%;
+}
+.datefield{
+    background: #f6f8fc;
+    padding: 15px 12px;
+    margin: 2px;
+    border-bottom: 1px solid #959595;
+    width: 80%;
+}
+.dark-input {
+    background: #959595;
+}
+input:focus {
+    outline: 3px solid #adcdf6;
+}
+.custom-container {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 10px;
+    padding: 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+input[type='radio']:after {
+    border-radius: 25px;
+    content: '';
+    width: 15px;
+    height: 15px;
+    display: block;
+    position: relative;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+input[type='radio']:checked:after {
+    background-color: black;
+    color: black;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.modal-container {
+    height: 100vh;
+    position: absolute;
+    background-color: rgba(5, 5, 5, 0.349);
+    width: 100vw;
+    top: 0;
 }
-
-.App-link {
-  color: #61dafb;
+.modal-cancel-btn {
+    display: flex;
+    justify-content: flex-end;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.custom-title h2 {
+    font-weight: 500;
+    margin-top: 2px;
+    color: #eb143a;
+    font-size: 1.2rem;
+}
+.custom-title h2 >span{
+    color: black;
+    margin-left: 10px;
+    display: inline-block;
+}
+.travel-class{
+    position: relative;
+}
+.travel-class-portal{
+    position: absolute;
+    background-color: white;
+    width: 390px;
 }
