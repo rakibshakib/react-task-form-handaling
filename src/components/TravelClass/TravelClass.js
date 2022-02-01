@@ -1,28 +1,38 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import { FromContext } from '../../context/Context';
+import { FiChevronDown } from 'react-icons/fi';
 
-const TravelClass = () => {
+export default function TravelClass() {
     const passengerRef = useRef();
     const { setPassengerAndClass } = useContext(FromContext);
     const [passengerCount, setPassengerCount] = useState(1);
+    const [youngAdult, setyoungAdult] = useState(0);
     const [travelClass, setTravelClass] = useState('Economy');
     const [isPortalOpen, setIsPortalOpen] = useState(false);
 
-    const decrementHandeler = () => {
-        if (passengerCount > 1) {
-            setPassengerCount((prev) => prev - 1);
+    const decrementHandeler = (type) => {
+        if (type === 'adult') {
+            if (passengerCount > 1) {
+                setPassengerCount((prev) => prev - 1);
+            }
+        } else if (type === 'young') {
+            setyoungAdult((prev) => prev - 1);
         }
     };
-    const incrimentHandler = () => {
-        setPassengerCount((prev) => prev + 1);
+    const incrimentHandler = (type) => {
+        if (type === 'adult') {
+            setPassengerCount((prev) => prev + 1);
+        } else if (type === 'young') {
+            setyoungAdult((prev) => prev + 1);
+        }
     };
     useEffect(() => {
         const travelClassAndPassenger = {
-            passenger: passengerCount,
+            passenger: passengerCount + youngAdult,
             TravelClass: travelClass,
         };
         setPassengerAndClass(travelClassAndPassenger);
-    }, [travelClass, passengerCount, setPassengerAndClass]);
+    }, [travelClass, passengerCount, setPassengerAndClass, youngAdult]);
 
     return (
         <div>
@@ -33,7 +43,11 @@ const TravelClass = () => {
                     onClick={() => setIsPortalOpen(!isPortalOpen)}
                     className="field cursor-pointer travel-class"
                 >
-                    {passengerCount} passenger, {travelClass || 'Economy'}
+                    {passengerCount + youngAdult} passenger,{' '}
+                    {travelClass || 'Economy'}
+                    
+                        <FiChevronDown  className='inline ml-20' />
+                    
                 </p>
                 {isPortalOpen && (
                     <div className="border-2 py-5 travel-class-portal outline outline-3 outline-blue-200">
@@ -73,6 +87,7 @@ const TravelClass = () => {
                         <hr />
                         <div className="p-3">
                             <p className="my-2 text-xl">Passenger</p>
+
                             <div className="flex justify-between items-center my-5">
                                 <div>
                                     <h2 className="text-xl mb-1">Adult</h2>
@@ -83,7 +98,9 @@ const TravelClass = () => {
                                         type="button"
                                         className=" py-2 px-5 text-red-600 text-4xl"
                                         value="adult"
-                                        onClick={decrementHandeler}
+                                        onClick={() =>
+                                            decrementHandeler('adult')
+                                        }
                                     >
                                         -
                                     </button>
@@ -94,7 +111,42 @@ const TravelClass = () => {
                                         type="button"
                                         className=" py-2 px-5 text-red-600 text-4xl"
                                         value="adult"
-                                        onClick={incrimentHandler}
+                                        onClick={() =>
+                                            incrimentHandler('adult')
+                                        }
+                                    >
+                                        +
+                                    </button>
+                                </div>
+                            </div>
+                            <div className="flex justify-between items-center my-5">
+                                <div>
+                                    <h2 className="text-xl mb-1">
+                                        Young adult
+                                    </h2>
+                                    <h3>Age 12 - 15</h3>
+                                </div>
+                                <div className="flex justify-around items-center border bg-slate-100">
+                                    <button
+                                        type="button"
+                                        className=" py-2 px-5 text-red-600 text-4xl"
+                                        value="adult"
+                                        onClick={() =>
+                                            decrementHandeler('young')
+                                        }
+                                    >
+                                        -
+                                    </button>
+                                    <span className=" py-2 px-5">
+                                        {youngAdult}
+                                    </span>
+                                    <button
+                                        type="button"
+                                        className=" py-2 px-5 text-red-600 text-4xl"
+                                        value="adult"
+                                        onClick={() =>
+                                            incrimentHandler('young')
+                                        }
                                     >
                                         +
                                     </button>
@@ -115,6 +167,4 @@ const TravelClass = () => {
             </div>
         </div>
     );
-};
-
-export default TravelClass;
+}

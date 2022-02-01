@@ -13,21 +13,28 @@ label {
     background: #f6f8fc;
     padding: 15px 20px;
     margin: 2px;
-    border-bottom: 1px solid #959595;
     width: 80%;
 }
-.datefield{
+.custom-bg {
+    background: #f6f8fc;
+    padding: 0 5px;
+    border-bottom: 1px solid #959595;
+}
+.datefield {
     background: #f6f8fc;
     padding: 15px 12px;
     margin: 2px;
     border-bottom: 1px solid #959595;
-    width: 90%;
+    width: 100%;
 }
 .dark-input {
     background: #959595;
 }
-input:focus {
+.custom-bg:hover {
     outline: 3px solid #adcdf6;
+}
+input:focus{
+    outline: none;
 }
 .custom-container {
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -48,10 +55,10 @@ input[type='radio']:checked:after {
     color: black;
 }
 .modal-container {
-    height: 100vh;
+    height: 100%;
     position: absolute;
     background-color: rgba(5, 5, 5, 0.349);
-    width: 100vw;
+    width: 100%;
     top: 0;
 }
 .modal-cancel-btn {
@@ -62,17 +69,17 @@ input[type='radio']:checked:after {
     font-weight: 500;
     margin-top: 2px;
     color: #eb143a;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
-.custom-title h2 >span{
+.custom-title h2 > span {
     color: black;
     margin-left: 10px;
     display: inline-block;
 }
-.travel-class{
+.travel-class {
     position: relative;
 }
-.travel-class-portal{
+.travel-class-portal {
     position: absolute;
     background-color: white;
     width: 390px;

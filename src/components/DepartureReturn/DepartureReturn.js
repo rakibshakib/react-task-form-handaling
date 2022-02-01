@@ -7,8 +7,8 @@ const DepartureReturn = () => {
     const { setStartDate, setReturnDate, isRoundTrip, error } =
         useContext(FromContext);
     return (
-        <div className='w-full border'>
-            <div className="flex items-center gap-x-3">
+        <div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-3">
                 <div>
                     <label htmlFor="inputFrom">Departure</label>
                     <br />

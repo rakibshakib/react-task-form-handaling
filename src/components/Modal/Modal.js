@@ -18,9 +18,10 @@ const Modal = () => {
                 </div>
                 <div className=" w-full mx-auto my-2 h-full border rounded-md">
                     <div className="p-5">
-                        <span className="text-2xl font-bold border-b-2 pb-2">
+                        <span className="md:text-2xl text-xl font-bold pb-2">
                             User Booking Details
                         </span>
+                        <hr />
                         <div className="mt-5 custom-title">
                             <h2>
                                 Type:{' '}
