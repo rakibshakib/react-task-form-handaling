@@ -33,7 +33,7 @@ label {
 .custom-bg:hover {
     outline: 3px solid #adcdf6;
 }
-input:focus{
+input:focus {
     outline: none;
 }
 .custom-container {
@@ -85,3 +85,6 @@ input[type='radio']:checked:after {
     max-width: 390px;
     min-width: 320px;
 }
+
+
+
