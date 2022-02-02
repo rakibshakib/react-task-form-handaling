@@ -16,7 +16,9 @@ export default function TravelClass() {
                 setPassengerCount((prev) => prev - 1);
             }
         } else if (type === 'young') {
-            setyoungAdult((prev) => prev - 1);
+            if (youngAdult > 0) {
+                setyoungAdult((prev) => prev - 1);
+            }
         }
     };
     const incrimentHandler = (type) => {
@@ -45,9 +47,7 @@ export default function TravelClass() {
                 >
                     {passengerCount + youngAdult} passenger,{' '}
                     {travelClass || 'Economy'}
-                    
-                        <FiChevronDown  className='inline ml-20' />
-                    
+                    <FiChevronDown className="inline ml-20" />
                 </p>
                 {isPortalOpen && (
                     <div className="border-2 py-5 travel-class-portal outline outline-3 outline-blue-200">
